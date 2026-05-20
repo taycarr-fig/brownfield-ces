@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_figma_figma__get_context_for_code_connect"
+    ]
+  }
+}
