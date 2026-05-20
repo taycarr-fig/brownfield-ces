@@ -7,11 +7,11 @@ import styles from './Dashboard.module.css'
 const tableStuff = {
   headers: ['Customer', 'Plan', 'MRR', 'Status'],
   dataRows: [
-    { cells: ['Northwind LLC', 'Enterprise', '$4,200', 'Active'] },
-    { cells: ['Contoso', 'Pro', '$890', 'Active'] },
-    { cells: ['Fabrikam', 'Starter', '$120', 'At risk'] },
-    { cells: ['Adventure Co', 'Pro', '$650', 'Active'] },
-    { cells: ['Tailspin Toys', 'Enterprise', '$12,400', 'Active'] },
+    { id: 'northwind', cells: ['Northwind LLC', 'Enterprise', '$4,200', 'Active'] },
+    { id: 'contoso', cells: ['Contoso', 'Pro', '$890', 'Active'] },
+    { id: 'fabrikam', cells: ['Fabrikam', 'Starter', '$120', 'At risk'] },
+    { id: 'adventure', cells: ['Adventure Co', 'Pro', '$650', 'Active'] },
+    { id: 'tailspin', cells: ['Tailspin Toys', 'Enterprise', '$12,400', 'Active'] },
   ],
 }
 
@@ -21,33 +21,33 @@ export default function Dashboard() {
       <NavBar brand="Acme" />
       <main className={styles.mainArea}>
         <h1 className={styles.sectionTitle}>Overview</h1>
-        <p className="mt-2 text-sm text-[#6B7280]">Last updated 2 minutes ago · internal only</p>
+        <p className="mt-2 text-sm text-acme-text-secondary">Last updated 2 minutes ago · internal only</p>
 
-        <div className="mt-4 rounded-lg border border-[#E5E7EB] bg-white p-4 text-sm text-[#6B7280]">
-          <span className="font-semibold text-[#374151]">Other flows:</span>{' '}
-          <Link to="/billing" className="font-medium text-[#2563EB] no-underline hover:underline">
+        <div className="mt-4 rounded-lg border border-acme-border-default bg-white p-4 text-sm text-acme-text-secondary">
+          <span className="font-semibold text-acme-text-primary">Other flows:</span>{' '}
+          <Link to="/billing" className="font-medium text-acme-action-primary no-underline hover:underline">
             Billing
           </Link>
-          <span className="text-[#D1D5DB]"> · </span>
-          <Link to="/team" className="font-medium text-[#2563EB] no-underline hover:underline">
+          <span className="text-acme-border-strong"> · </span>
+          <Link to="/team" className="font-medium text-acme-action-primary no-underline hover:underline">
             Team
           </Link>
-          <span className="text-[#D1D5DB]"> · </span>
-          <Link to="/integrations" className="font-medium text-[#2563EB] no-underline hover:underline">
+          <span className="text-acme-border-strong"> · </span>
+          <Link to="/integrations" className="font-medium text-acme-action-primary no-underline hover:underline">
             Integrations
           </Link>
         </div>
 
         <div className={styles.gridStats}>
-          <CardThing stat="Users" subtext="12,480" footerNote="+3.2% vs last week" />
-          <CardThing stat="Revenue" subtext="$842k" footerNote="MTD" />
-          <CardThing stat="Tickets" subtext="37 open" footerNote="SLA 94%" />
-          <CardThing stat="Uptime" subtext="99.98%" footerNote="30d rolling" />
+          <CardThing title="Users" subtext="12,480" footerNote="+3.2% vs last week" />
+          <CardThing title="Revenue" subtext="$842k" footerNote="MTD" />
+          <CardThing title="Tickets" subtext="37 open" footerNote="SLA 94%" />
+          <CardThing title="Uptime" subtext="99.98%" footerNote="30d rolling" />
         </div>
 
         <div className={styles.cardPanel}>
-          <h2 className="m-0 text-[17px] font-semibold text-[#374151]">Recent accounts</h2>
-          <p className="mb-0 mt-2 text-[13px] text-[#9CA3AF]">Hardcoded preview data — do not use in prod</p>
+          <h2 className="m-0 text-[17px] font-semibold text-acme-text-primary">Recent accounts</h2>
+          <p className="mb-0 mt-2 text-[13px] text-acme-text-muted">Hardcoded preview data — do not use in prod</p>
           <TableV2 headers={tableStuff.headers} dataRows={tableStuff.dataRows} />
         </div>
       </main>

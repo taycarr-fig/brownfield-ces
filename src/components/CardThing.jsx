@@ -1,15 +1,15 @@
 /**
  * Card for dashboard-style metrics.
  *
- * Training note: the first prop is named `stat`, but callers pass a human
- * label like "Users" or "Revenue". A clearer name would be `title` or `label`.
+ * Prop `title` is the card heading label (e.g. "Users", "Revenue").
+ * Colors use Acme Design System tokens via Tailwind.
  */
-export function CardThing({ stat, subtext, footerNote }) {
+export function CardThing({ title, subtext, footerNote }) {
   return (
-    <div className="rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm">
-      <p className="m-0 text-[13px] font-medium text-[#6B7280]">{stat}</p>
-      <div className="mt-2 text-2xl font-semibold text-[#374151]">{subtext}</div>
-      {footerNote && <div className="mt-3 text-xs text-[#9CA3AF]">{footerNote}</div>}
+    <div className="rounded-lg border border-acme-border-default bg-white p-5 shadow-sm">
+      <p className="m-0 text-[13px] font-medium text-acme-text-secondary">{title}</p>
+      <div className="mt-2 text-2xl font-semibold text-acme-text-primary">{subtext}</div>
+      {footerNote && <div className="mt-3 text-xs text-acme-text-muted">{footerNote}</div>}
     </div>
   )
 }

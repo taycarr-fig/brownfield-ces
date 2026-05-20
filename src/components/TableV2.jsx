@@ -1,11 +1,8 @@
-import { Fragment } from 'react'
-
 /**
  * Simple table helper.
  *
- * Training note: tbody rows use the row index as `key`. That is OK for static
- * demos, but breaks down when rows are reordered, filtered, or inserted — prefer
- * a stable `id` on each row object instead.
+ * Each row object must include a stable `id` field used as the React key.
+ * Colors use Acme Design System tokens via Tailwind.
  */
 export function TableV2(props) {
   const headers = props.headers
@@ -15,11 +12,11 @@ export function TableV2(props) {
     <div className="mt-4 overflow-x-auto">
       <table className="w-full border-collapse text-sm">
         <thead>
-          <tr className="bg-[#F9FAFB]">
+          <tr className="bg-acme-bg-surface">
             {headers.map((h) => (
               <th
                 key={h}
-                className="border-b border-[#E5E7EB] px-4 py-3 text-left font-semibold text-[#374151]"
+                className="border-b border-acme-border-default px-4 py-3 text-left font-semibold text-acme-text-primary"
               >
                 {h}
               </th>
@@ -27,16 +24,14 @@ export function TableV2(props) {
           </tr>
         </thead>
         <tbody>
-          {rows.map((row, idx) => (
-            <Fragment key={idx}>
-              <tr className="border-b border-[#E5E7EB]">
-                {row.cells.map((cell, j) => (
-                  <td key={j} className="px-4 py-3 text-[#374151]">
-                    {cell}
-                  </td>
-                ))}
-              </tr>
-            </Fragment>
+          {rows.map((row) => (
+            <tr key={row.id} className="border-b border-acme-border-default">
+              {row.cells.map((cell, j) => (
+                <td key={j} className="px-4 py-3 text-acme-text-primary">
+                  {cell}
+                </td>
+              ))}
+            </tr>
           ))}
         </tbody>
       </table>
