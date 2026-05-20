@@ -1,0 +1,4 @@
+{
+  "parser": "react",
+  "include": ["src/**/*.figma.ts"]
+}
