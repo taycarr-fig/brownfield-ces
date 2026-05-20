@@ -16,8 +16,8 @@ export default function TeamMembersScreen() {
     <div className="min-h-screen bg-white">
       <NavBar brand="Acme" />
       <div className="max-w-xl px-6 py-8">
-        <h1 className="mb-2 text-2xl font-semibold text-[#374151]">Team & access</h1>
-        <p className="mb-6 text-sm text-[#6B7280]">
+        <h1 className="mb-2 text-2xl font-semibold text-acme-text-primary">Team & access</h1>
+        <p className="mb-6 text-sm text-acme-text-secondary">
           Invite members, then wire billing and integrations from the header nav.
         </p>
 
@@ -25,10 +25,10 @@ export default function TeamMembersScreen() {
           {people.map((p) => (
             <li
               key={p.id}
-              className="flex items-center justify-between border-b border-[#E5E7EB] px-4 py-3 text-sm"
+              className="flex items-center justify-between border-b border-acme-border-default px-4 py-3 text-sm"
             >
-              <span className="font-semibold text-[#374151]">{p.name}</span>
-              <span className="text-[#6B7280]">{p.role}</span>
+              <span className="font-semibold text-acme-text-primary">{p.name}</span>
+              <span className="text-acme-text-secondary">{p.role}</span>
             </li>
           ))}
         </ul>
@@ -42,9 +42,9 @@ export default function TeamMembersScreen() {
           </BigButton>
         </div>
 
-        <p className="mt-6 text-sm text-[#9CA3AF]">
+        <p className="mt-6 text-sm text-acme-text-muted">
           Also try the{' '}
-          <Link to="/integrations" className="text-[#3B82F6] no-underline hover:underline">
+          <Link to="/integrations" className="text-acme-action-ghost no-underline hover:underline">
             integrations hub
           </Link>{' '}
           for Slack notifications.

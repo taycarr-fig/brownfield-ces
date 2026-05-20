@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Acme Design System — Color tokens (mirrors Figma "Color" variable collection) */
+
+  /* Action */
+  --color-action-primary: #2563EB;
+  --color-action-primary-dark: #1E40AF;
+  --color-action-danger: #EF4444;
+  --color-action-success: #10B981;
+  --color-action-ghost-text: #3B82F6;
+
+  /* Text */
+  --color-text-primary: #374151;
+  --color-text-secondary: #6B7280;
+  --color-text-muted: #9CA3AF;
+  --color-text-heading: #111827;
+
+  /* Backgrounds */
+  --color-bg-surface: #F9FAFB;
+  --color-bg-page: #F3F4F6;
+  --color-bg-accent: #EFF6FF;
+
+  /* Borders */
+  --color-border-default: #E5E7EB;
+  --color-border-strong: #D1D5DB;
+}
+
 body {
   margin: 0;
 }

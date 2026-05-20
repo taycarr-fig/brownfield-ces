@@ -11,13 +11,13 @@ export default function SettingsScreen() {
   const [region, setRegion] = useState('us-east')
 
   return (
-    <div className="min-h-screen bg-[#F9FAFB]">
+    <div className="min-h-screen bg-acme-bg-surface">
       <NavBar brand="Acme" />
       <div className="mx-auto max-w-2xl px-6 py-8">
-        <h1 className="mb-2 text-2xl font-semibold text-[#374151]">Workspace settings</h1>
-        <p className="mb-6 text-sm text-[#6B7280]">Changes apply to this environment only.</p>
+        <h1 className="mb-2 text-2xl font-semibold text-acme-text-primary">Workspace settings</h1>
+        <p className="mb-6 text-sm text-acme-text-secondary">Changes apply to this environment only.</p>
 
-        <div className="rounded-lg border border-[#E5E7EB] bg-white p-6">
+        <div className="rounded-lg border border-acme-border-default bg-white p-6">
           <InputField
             labelText="Workspace name"
             id="ws-name"
@@ -28,35 +28,35 @@ export default function SettingsScreen() {
 
           <div className="mb-2 flex items-center gap-4">
             <div>
-              <div className="text-sm font-semibold text-[#374151]">Email notifications</div>
-              <div className="mt-1 text-xs text-[#9CA3AF]">Digest to admins</div>
+              <div className="text-sm font-semibold text-acme-text-primary">Email notifications</div>
+              <div className="mt-1 text-xs text-acme-text-muted">Digest to admins</div>
             </div>
-            <ToggleSwitch isOn={notifyEmail} whenToggle={setNotifyEmail} />
+            <ToggleSwitch checked={notifyEmail} onChange={setNotifyEmail} />
           </div>
 
           <div className="mb-5 mt-2 flex items-center gap-4">
             <div>
-              <div className="text-sm font-semibold text-[#374151]">Beta features</div>
-              <div className="mt-1 text-xs text-[#9CA3AF]">May be unstable</div>
+              <div className="text-sm font-semibold text-acme-text-primary">Beta features</div>
+              <div className="mt-1 text-xs text-acme-text-muted">May be unstable</div>
             </div>
-            <ToggleSwitch isOn={betaFeatures} whenToggle={setBetaFeatures} />
+            <ToggleSwitch checked={betaFeatures} onChange={setBetaFeatures} />
           </div>
 
-          <label htmlFor="region" className="mb-2 block text-sm font-semibold text-[#374151]">
+          <label htmlFor="region" className="mb-2 block text-sm font-semibold text-acme-text-primary">
             Data region
           </label>
           <select
             id="region"
             value={region}
             onChange={(e) => setRegion(e.target.value)}
-            className="mb-5 w-full rounded-md border border-[#D1D5DB] bg-white px-3 py-2 text-sm text-[#111827]"
+            className="mb-5 w-full rounded-md border border-acme-border-strong bg-white px-3 py-2 text-sm text-acme-text-heading"
           >
             <option value="us-east">US East</option>
             <option value="eu-west">EU West</option>
             <option value="apac">APAC</option>
           </select>
 
-          <BigButton variant="primary" extraStyle={{ marginTop: 4 }}>
+          <BigButton variant="primary">
             Save changes
           </BigButton>
         </div>

@@ -1,36 +1,36 @@
 /**
  * Primary actions across the app.
  *
- * Training note: `extraStyle` lets any caller override padding/colors, which
- * quickly undoes a consistent button look. Variants also hard-code hex values
- * that are duplicated elsewhere (no single palette module).
+ * Variants use shared Acme Design System color tokens (CSS custom properties).
+ * The `extraStyle` escape hatch has been removed to enforce design consistency.
  */
-export default function BigButton({ children, variant = 'primary', onClick, type = 'button', extraStyle }) {
+export default function BigButton({ children, variant = 'primary', onClick, type = 'button', disabled = false }) {
   const base = {
     padding: '8px 16px',
     borderRadius: 8,
     fontSize: 14,
     fontWeight: 600,
-    cursor: 'pointer',
+    cursor: disabled ? 'default' : 'pointer',
     border: 'none',
     fontFamily: 'system-ui, sans-serif',
+    opacity: disabled ? 0.5 : 1,
   }
 
   let colors = {}
   if (variant === 'primary') {
-    colors = { backgroundColor: '#2563EB', color: '#FFFFFF' }
+    colors = { backgroundColor: 'var(--color-action-primary)', color: '#FFFFFF' }
   } else if (variant === 'ghost') {
     colors = {
       backgroundColor: 'transparent',
-      color: '#3B82F6',
-      border: '1px solid #3B82F6',
+      color: 'var(--color-action-ghost-text)',
+      border: '1px solid var(--color-action-ghost-text)',
     }
   } else if (variant === 'danger') {
-    colors = { backgroundColor: '#EF4444', color: '#FFFFFF' }
+    colors = { backgroundColor: 'var(--color-action-danger)', color: '#FFFFFF' }
   }
 
   return (
-    <button type={type} onClick={onClick} style={{ ...base, ...colors, ...extraStyle }}>
+    <button type={type} onClick={onClick} disabled={disabled} style={{ ...base, ...colors }}>
       {children}
     </button>
   )

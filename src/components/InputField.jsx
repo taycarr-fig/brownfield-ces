@@ -1,11 +1,10 @@
 /**
  * Text input with label.
- * Training note: uses `labelText` instead of the more common `label` prop name.
  */
 export function InputField({ labelText, id, value, onChange, placeholder }) {
   return (
     <div className="mb-4">
-      <label htmlFor={id} className="mb-2 block text-sm font-semibold text-[#374151]">
+      <label htmlFor={id} className="mb-2 block text-sm font-semibold text-acme-text-primary">
         {labelText}
       </label>
       <input
@@ -13,7 +12,7 @@ export function InputField({ labelText, id, value, onChange, placeholder }) {
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="w-full rounded-md border border-[#D1D5DB] px-3 py-2 text-sm text-[#111827] outline-none focus:ring-2 focus:ring-[#3B82F6]"
+        className="w-full rounded-md border border-acme-border-strong px-3 py-2 text-sm text-acme-text-heading outline-none focus:ring-2 focus:ring-acme-action-ghost"
       />
     </div>
   )
